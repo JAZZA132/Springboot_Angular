@@ -27,7 +27,7 @@ public class logincontroller {
         Member m = new Member();
         m.setId("1");
         m.setName("jason");
-
+        //m.setName("jason");m.setName("jason");m.setName("jason");m.setName("jason");
         return m; // <--這邊的字串最後會顯示在前端頁面
     }
 
