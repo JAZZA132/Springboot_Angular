@@ -22,7 +22,6 @@ public class logincontroller {
     @ResponseBody
     @PostMapping (value = "/hello")
     public Member getpost(@RequestBody Member test) {
-        System.out.println("123");
         System.out.println(test);
         Member m = new Member();
         m.setId("1");
