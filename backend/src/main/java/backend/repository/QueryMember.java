@@ -11,4 +11,8 @@ import java.util.List;
 public interface QueryMember extends JpaRepository<Member,String> {
 
     public List<Member> findAll();
+
+    public Member findByAccountAndPassword(String Account,String Password);
+
+    void deleteMemberByID(int id);
 }

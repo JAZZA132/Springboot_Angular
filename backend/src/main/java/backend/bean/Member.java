@@ -14,7 +14,7 @@ import java.io.Serializable;
 @Scope(value = ConfigurableBeanFactory.SCOPE_SINGLETON)
 public class Member implements Serializable {
 
-    private String id ;
+    private int id ;
     private String name;
     private String account;
     private String password;
@@ -22,20 +22,26 @@ public class Member implements Serializable {
     public Member() {
     }
 
-    public Member(String id, String name, String account, String password) {
+    public Member(int id, String name, String account, String password) {
         this.id = id;
         this.name = name;
         this.account = account;
         this.password = password;
     }
 
+    public Member(int id) {
+        this.id = id;
+    }
+
+
+
     @Column(name = "ID")
     @Id
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

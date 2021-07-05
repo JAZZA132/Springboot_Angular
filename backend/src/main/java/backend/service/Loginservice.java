@@ -13,9 +13,27 @@ public class Loginservice {
     @Autowired
     private QueryMember queryMember;
 
-    public List<Member> getQuery(){
+
+    public List<Member> findAllMember(){
         List<Member> list = queryMember.findAll();
-        list.stream().forEach(p -> System.out.println(p.toString()));
         return list;
+    }
+
+    public Member getQueryMember(Member member){
+        Member m = queryMember.findByAccountAndPassword(member.getAccount(),member.getPassword());
+        return m;
+    }
+
+    public Member addMember(Member member){
+        return queryMember.save(member);
+    }
+
+
+    public Member updateMember(Member member){
+        return queryMember.save(member);
+    }
+
+    public void deleteMember(int ID){
+        queryMember.deleteMemberByID(ID);
     }
 }
