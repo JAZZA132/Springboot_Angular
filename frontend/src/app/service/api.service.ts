@@ -4,8 +4,8 @@ import { HelloData } from '../data/hello-data'; // 引入HelloData
 import { Observable } from 'rxjs';
 
 
-let url = 'http://localhost:8080';
-
+const url = 'http://localhost:8080';
+const login= '/login';
 
 @Injectable({
   providedIn: 'root'
@@ -22,22 +22,20 @@ export class ApiService {
     account:string
   ) {
     // get回傳Observable<HelloData>物件
-    return this.http.get<HelloData>(url + '/hello/' + account); // 呼叫Spring Boot的DemoController.getHello()
+    return this.http.get<HelloData>(url + login + account); // 呼叫Spring Boot的DemoController.getHello()
   }
 
 
-  getpost(
-    id:string,
-    name:string,
-    accout:string
+  login(
+    accout:string,
+    password:string
   ): Observable<any>{
     const reqobj = {
-      id:id,
-      name:name,
-      accout:accout
+     accout:accout,
+     password:password
     };
     {
-      return this.http.post(url + '/hello', reqobj); // 呼叫Spring Boot的DemoController.getHello()
+      return this.http.post(url + login , reqobj); // 呼叫Spring Boot的DemoController.getHello()
     }
   }
 

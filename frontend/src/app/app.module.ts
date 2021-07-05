@@ -5,18 +5,46 @@ import { HttpClientModule } from '@angular/common/http' // 引入HttpClientModul
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello/hello.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { LayoutComponent } from './layout/layout.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatRippleModule } from '@angular/material/core';
+import { MatButtonModule } from '@angular/material/button';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatCardModule } from '@angular/material/card';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import {MatListModule} from '@angular/material/list';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    HelloComponent
+    HelloComponent,
+    HomeComponent,
+    LoginComponent,
+    LayoutComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule, // 引入HttpClientModule，放在BrowserModule後面
+    BrowserAnimationsModule,
     FormsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatRippleModule,
+    MatButtonModule,
+    MatSliderModule,
+    ReactiveFormsModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatListModule,
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]

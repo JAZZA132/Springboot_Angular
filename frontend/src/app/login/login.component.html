@@ -1,0 +1,22 @@
+<div class="container">
+    
+    <mat-card fxFlex class="login-card">
+        <mat-card-title class="title">登入</mat-card-title>
+        <mat-list role="list">
+            <mat-list-item role="listitem">帳號:
+                <input matInput placeholder="account" [(ngModel)]="account" type="text" required>
+
+            </mat-list-item>
+
+            <mat-list-item role="listitem">密碼:
+                <input matInput placeholder="password" [(ngModel)]="password" type="password" required>
+
+            </mat-list-item>
+            <mat-list-item role="listitem">
+                <div class="button">
+                    <button mat-raised-button (click)="doLogin()" center> 登入</button>
+                </div>
+            </mat-list-item>
+        </mat-list>
+    </mat-card>
+</div>

@@ -24,38 +24,5 @@ export class HelloComponent implements OnInit {
   ngOnInit() {
   }
 
-  /** 委託ApiService.getHello()取得內容 */
-  getHello() {
-    this.apiService.getHello(this.account).subscribe(
-      value => this.success(value)
-    );
-  }
-
-
-  getpost(){
-    this.apiService.getpost(
-      this.id,
-      this.name,
-      this.account
-      ).subscribe(
-      a =>console.log(a)
-    );
-  }
-
-
-
-  /** API呼叫成功的處理 */
-  success(value: HelloData) {
-    this.id = value.id;
-    this.name = value.name;
-    this.account = value.account
-    this.account2 = value.account
-  }
-
-  /** 清除頁面{{hello}}內容 */
-  clear() {
-    this.id = '';
-    this.name = '';
-  }
 
 }

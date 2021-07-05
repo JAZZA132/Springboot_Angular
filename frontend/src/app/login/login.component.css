@@ -1,0 +1,40 @@
+.container {
+     background: url(../../pic/TEST.jpg) no-repeat center bottom;
+    background-position: cover;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .container:before {
+      content: "";
+      display: block;
+      width: 100%;
+      background-color: rgba(0, 0, 0, .5);
+      height: 100vh;
+  }
+  
+  .login-card {
+    max-width: 350px;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);  
+  }
+  .title {
+    text-align: center;
+  }
+  
+  .btn-center {
+    display: flex;
+    justify-content: center;
+  }
+  button{
+    /*Change the width as much as you like, but make sure 
+    margin-left and margin-right + width = 100%*/
+    max-width: 350px;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);  
+}
