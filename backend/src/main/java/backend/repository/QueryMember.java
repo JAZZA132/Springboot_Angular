@@ -14,6 +14,6 @@ public interface QueryMember extends JpaRepository<Member,String> {
 
     public Member findByAccountAndPassword(String Account,String Password);
 
-//    123
+
 //    void deleteMemberByID(int id);
 }
