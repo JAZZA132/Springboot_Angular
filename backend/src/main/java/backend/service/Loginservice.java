@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import backend.repository.QueryMember;
 
+import java.nio.file.attribute.UserPrincipalNotFoundException;
 import java.util.List;
 
 @Service
@@ -32,6 +33,7 @@ public class Loginservice {
     public Member updateMember(Member member){
         return queryMember.save(member);
     }
+
 
 //    public void deleteMember(int ID){
 //        queryMember.deleteMemberByID(ID);
