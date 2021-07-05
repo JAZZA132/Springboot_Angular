@@ -18,8 +18,17 @@ public class Member implements Serializable {
     private String name;
     private String account;
     private String password;
+    private boolean status;
 
     public Member() {
+    }
+
+    public Member(int id, String name, String account, String password, boolean status) {
+        this.id = id;
+        this.name = name;
+        this.account = account;
+        this.password = password;
+        this.status = status;
     }
 
     public Member(int id, String name, String account, String password) {
@@ -33,7 +42,13 @@ public class Member implements Serializable {
         this.id = id;
     }
 
+    public boolean isStatus() {
+        return status;
+    }
 
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
 
     @Column(name = "ID")
     @Id
@@ -78,10 +93,11 @@ public class Member implements Serializable {
     @Override
     public String toString() {
         return "Member{" +
-                "id='" + id + '\'' +
+                "id=" + id +
                 ", name='" + name + '\'' +
                 ", account='" + account + '\'' +
                 ", password='" + password + '\'' +
+                ", status=" + status +
                 '}';
     }
 }

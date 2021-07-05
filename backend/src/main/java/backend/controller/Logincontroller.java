@@ -23,7 +23,7 @@ public class Logincontroller {
     public Member getHello(@PathVariable String account) {
         System.out.println(account);
         Member m = new Member();
-        m.setId("1");
+        m.setId(1);
         m.setName("jason");
         m.setAccount(account);
 
@@ -53,7 +53,7 @@ public class Logincontroller {
     //登入
     @ResponseBody
     @PostMapping (value = "/login")
-    public String getQueryMember(
+    public Member getQueryMember(
             @RequestBody Member member,
             HttpServletRequest request
             ) {
@@ -61,20 +61,16 @@ public class Logincontroller {
         Member user = loginservice.getQueryMember(member);
         HttpSession session = request.getSession();
 
-        String str = "";
+
         if (user != null) {
-            str = "成功登入";
+            member.setStatus(true);
             session.setAttribute("Account",user.getAccount());
             session.setAttribute("ID",user.getId());
             session.setAttribute("Name",user.getName());
-            session.setAttribute("str",str);
-            return str; // <--返回是否有這位會員
         } else {
-            str = "登入失敗";
-            session.setAttribute("str",str);
-            return "redirect:/login";
+            member.setStatus(false);
         }
-
+        return member; // <--返回是否有這位會員
     }
 
 }

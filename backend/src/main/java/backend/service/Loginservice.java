@@ -33,7 +33,7 @@ public class Loginservice {
         return queryMember.save(member);
     }
 
-    public void deleteMember(int ID){
-        queryMember.deleteMemberByID(ID);
-    }
+//    public void deleteMember(int ID){
+//        queryMember.deleteMemberByID(ID);
+//    }
 }
