@@ -69,14 +69,14 @@ public class Logincontroller {
     }
 
     //新增會員
-    @PostMapping("/add")
+    @PostMapping("/login")
     public ResponseEntity<Member> addMember(@RequestBody Member member){
-        Member newmember = loginservice.addMember(member);
-        return new ResponseEntity<>(newmember, HttpStatus.CREATED);
+        Member newMember = loginservice.addMember(member);
+        return new ResponseEntity<>(newMember, HttpStatus.CREATED);
     }
 
     //編輯會員
-    @PostMapping("/update")
+    @PostMapping("/login/{id}")
     public ResponseEntity<Member> updateMember(@RequestBody Member member){
         Member updateMember = loginservice.updateMember(member);
         return new ResponseEntity<>(updateMember, HttpStatus.OK);
