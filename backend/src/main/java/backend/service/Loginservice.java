@@ -24,7 +24,6 @@ public class Loginservice {
 
     public Member getQueryMember(Member member){
         Member m = queryMember.findByAccountAndPassword(member.getAccount(),member.getPassword());
-        System.out.println("m" +m);
         return m;
     }
 
