@@ -107,10 +107,13 @@ public class Logincontroller {
             session.setAttribute(user.getAccount(),user.getAccount());
             session.setAttribute(String.valueOf(user.getId()),user.getId());
             session.setAttribute(user.getName(),user.getName());
-            map.put("member",user);
+            map.put("id",user.getId());
+            map.put("account",user.getAccount());
+            map.put("Cstatus","成功");
             map.put("status",true);
         } else {
             map.put("status",false);
+            map.put("Cstatus","登入失敗");
         }
         return map; // <--返回是否有這位會員
     }
