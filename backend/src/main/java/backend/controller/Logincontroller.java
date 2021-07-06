@@ -3,6 +3,8 @@ package backend.controller;
 import backend.bean.Member;
 import backend.service.Loginservice;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -45,12 +47,47 @@ public class Logincontroller {
 
 
     //查全部會員
-    @ResponseBody
-    @GetMapping (value = "/login")
-    public List<Member> getMemberAll() {
-        System.out.println(loginservice.findAllMember());
-        return loginservice.findAllMember(); // <--查找所有會員
+//    @ResponseBody
+//    @GetMapping (value = "/login")
+//    public List<Member> getMemberAll() {
+//        System.out.println(loginservice.findAllMember());
+//        return loginservice.findAllMember(); // <--查找所有會員
+//    }
+
+    //查全部會員
+    @GetMapping(value = "/login")
+    public ResponseEntity<List<Member>> getAllMember(){
+        List<Member> members = loginservice.findAllMember();
+        return  new ResponseEntity<>(members, HttpStatus.OK);
     }
+
+    //查詢單一會員BYId
+    @GetMapping(value = "/login/{id}")
+    public ResponseEntity<Member> getMemberById(@PathVariable("id") int id){
+        Member member = loginservice.findMemberById(id);
+        return new ResponseEntity<>(member, HttpStatus.OK);
+    }
+
+    //新增會員
+    @PostMapping("/add")
+    public ResponseEntity<Member> addMember(@RequestBody Member member){
+        Member newmember = loginservice.addMember(member);
+        return new ResponseEntity<>(newmember, HttpStatus.CREATED);
+    }
+
+    //編輯會員
+    @PostMapping("/update")
+    public ResponseEntity<Member> updateMember(@RequestBody Member member){
+        Member updateMember = loginservice.updateMember(member);
+        return new ResponseEntity<>(updateMember, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteMember(@PathVariable("id") int id){
+        loginservice.deleteMember(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
 
     //登入
     @ResponseBody

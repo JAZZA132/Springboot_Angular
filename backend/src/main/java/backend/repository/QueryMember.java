@@ -8,12 +8,14 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface QueryMember extends JpaRepository<Member,String> {
+public interface QueryMember extends JpaRepository<Member, Integer> {
 
     public List<Member> findAll();
 
     public Member findByAccountAndPassword(String Account,String Password);
 
 
-//    void deleteMemberByID(int id);
+    Optional<Member> findMemberById(int id);
+
+    void deleteMemberById(int id);
 }

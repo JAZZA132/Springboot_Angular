@@ -14,30 +14,28 @@ import java.io.Serializable;
 @Scope(value = ConfigurableBeanFactory.SCOPE_SINGLETON)
 public class Member implements Serializable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(nullable = false,updatable = false)
     private int id ;
     private String name;
     private String account;
     private String password;
 
+    @Column(nullable = false,updatable = false)
+    private String memberCode;
+
     public Member() {
     }
 
-
-
-    public Member(int id, String name, String account, String password) {
+    public Member(int id, String name, String account, String password, String memberCode) {
         this.id = id;
         this.name = name;
         this.account = account;
         this.password = password;
+        this.memberCode = memberCode;
     }
 
-    public Member(int id) {
-        this.id = id;
-    }
-
-
-    @Column(name = "ID")
-    @Id
     public int getId() {
         return id;
     }
@@ -46,8 +44,6 @@ public class Member implements Serializable {
         this.id = id;
     }
 
-    @Column(name = "Name")
-    @Id
     public String getName() {
         return name;
     }
@@ -56,8 +52,6 @@ public class Member implements Serializable {
         this.name = name;
     }
 
-    @Column(name = "Account")
-    @Id
     public String getAccount() {
         return account;
     }
@@ -66,14 +60,20 @@ public class Member implements Serializable {
         this.account = account;
     }
 
-    @Column(name = "Password")
-    @Id
     public String getPassword() {
         return password;
     }
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getMemberCode() {
+        return memberCode;
+    }
+
+    public void setMemberCode(String memberCode) {
+        this.memberCode = memberCode;
     }
 
     @Override
@@ -83,6 +83,7 @@ public class Member implements Serializable {
                 ", name='" + name + '\'' +
                 ", account='" + account + '\'' +
                 ", password='" + password + '\'' +
+                ", memberCode='" + memberCode + '\'' +
                 '}';
     }
 }
