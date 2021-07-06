@@ -76,7 +76,7 @@ public class Logincontroller {
     }
 
     //編輯會員
-    @PostMapping("/login/{id}")
+    @PutMapping("/login/{id}")
     public ResponseEntity<Member> updateMember(@RequestBody Member member){
         Member updateMember = loginservice.updateMember(member);
         return new ResponseEntity<>(updateMember, HttpStatus.OK);
@@ -90,28 +90,28 @@ public class Logincontroller {
 
 
     //登入
-    @ResponseBody
-    @PostMapping (value = "/login")
-    public Map getQueryMember(
-            @RequestBody Member member,
-            HttpServletRequest request
-    ) {
-
-        Member user = loginservice.getQueryMember(member);
-        HttpSession session = request.getSession();
-
-        Map<String, Object> map = new HashMap<>();
-
-        if (user != null) {
-            session.setAttribute(user.getAccount(),user.getAccount());
-            session.setAttribute(String.valueOf(user.getId()),user.getId());
-            session.setAttribute(user.getName(),user.getName());
-            map.put("member",user);
-            map.put("status",true);
-        } else {
-            map.put("status",false);
-        }
-        return map; // <--返回是否有這位會員
-    }
+//    @ResponseBody
+//    @PostMapping (value = "/login")
+//    public Map getQueryMember(
+//            @RequestBody Member member,
+//            HttpServletRequest request
+//    ) {
+//
+//        Member user = loginservice.getQueryMember(member);
+//        HttpSession session = request.getSession();
+//
+//        Map<String, Object> map = new HashMap<>();
+//
+//        if (user != null) {
+//            session.setAttribute(user.getAccount(),user.getAccount());
+//            session.setAttribute(String.valueOf(user.getId()),user.getId());
+//            session.setAttribute(user.getName(),user.getName());
+//            map.put("member",user);
+//            map.put("status",true);
+//        } else {
+//            map.put("status",false);
+//        }
+//        return map; // <--返回是否有這位會員
+//    }
 
 }
