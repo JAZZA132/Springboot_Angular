@@ -98,7 +98,6 @@ public class Logincontroller {
     ) {
 
         Member user = loginservice.getQueryMember(member);
-        System.out.println(member);
         HttpSession session = request.getSession();
 
         Map<String, Object> map = new HashMap<>();
