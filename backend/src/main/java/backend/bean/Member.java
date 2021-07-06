@@ -20,10 +20,11 @@ public class Member implements Serializable {
     private int id ;
     private String name;
     private String account;
+
     private String password;
 
-    @Column(nullable = false,updatable = false)
-    private String memberCode;
+
+    private String membercode;
 
     public Member() {
     }
@@ -33,7 +34,7 @@ public class Member implements Serializable {
         this.name = name;
         this.account = account;
         this.password = password;
-        this.memberCode = memberCode;
+        this.membercode = memberCode;
     }
 
     public int getId() {
@@ -69,11 +70,11 @@ public class Member implements Serializable {
     }
 
     public String getMemberCode() {
-        return memberCode;
+        return membercode;
     }
 
     public void setMemberCode(String memberCode) {
-        this.memberCode = memberCode;
+        this.membercode = memberCode;
     }
 
     @Override
@@ -83,7 +84,7 @@ public class Member implements Serializable {
                 ", name='" + name + '\'' +
                 ", account='" + account + '\'' +
                 ", password='" + password + '\'' +
-                ", memberCode='" + memberCode + '\'' +
+                ", memberCode='" + membercode + '\'' +
                 '}';
     }
 }
