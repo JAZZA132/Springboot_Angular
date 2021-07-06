@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 
 
 const url = 'http://localhost:8080';
-const login= '/login';
+const login= '/login/';
 
 @Injectable({
   providedIn: 'root'
@@ -27,11 +27,11 @@ export class ApiService {
 
 
   login(
-    accout:string,
+    account:string,
     password:string
   ): Observable<any>{
     const reqobj = {
-     accout:accout,
+      account:account,
      password:password
     };
     {
