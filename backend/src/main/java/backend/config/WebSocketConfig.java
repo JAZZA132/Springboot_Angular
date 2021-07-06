@@ -11,19 +11,16 @@ import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerCo
 public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
     @Override
-    public void registerStompEndpoints(StompEndpointRegistry endpointRegistry) {
-        // 註冊一個給Client連至WebSocket Server的節點(websocket endpoint)
-        endpointRegistry.addEndpoint("/chatroom").withSockJS();
+    public void configureMessageBroker(MessageBrokerRegistry config) {
+        config.enableSimpleBroker("/topic");
+        config.setApplicationDestinationPrefixes("/gkz");
     }
 
     @Override
-    public void configureMessageBroker(MessageBrokerRegistry brokerRegister) {
-
-        // 啟用一個訊息代理並設定訊息發送目地的前綴路徑
-        brokerRegister.enableSimpleBroker("/topic");
-
-        // 設定導向至訊息處理器的前綴路徑
-        brokerRegister.setApplicationDestinationPrefixes("/app");
+    public void registerStompEndpoints(StompEndpointRegistry registry) {
+        registry
+                .addEndpoint("/gkz-stomp-endpoint")
+                .setAllowedOrigins("http://localhost:4200")
+                .withSockJS();
     }
-
 }
