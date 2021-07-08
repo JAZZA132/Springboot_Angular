@@ -18,6 +18,8 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import {MatListModule} from '@angular/material/list';
+import { WebsocketComponent } from './websocket/websocket.component';
+import { MemberComponent } from './member/member.component';
 
 
 @NgModule({
@@ -26,7 +28,9 @@ import {MatListModule} from '@angular/material/list';
     HelloComponent,
     HomeComponent,
     LoginComponent,
-    LayoutComponent
+    LayoutComponent,
+    WebsocketComponent,
+    MemberComponent
   ],
   imports: [
     BrowserModule,

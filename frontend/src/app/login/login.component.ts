@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
         console.log(aa.account);
         sessionStorage.setItem('user', aa.account);
         sessionStorage.setItem('id', aa.id);
-        this.router.navigate(['home']);
+        this.router.navigate(['member']);
 
       }else{
         console.log("密碼錯誤");

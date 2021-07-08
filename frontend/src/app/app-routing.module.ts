@@ -4,6 +4,8 @@ import { HelloComponent } from './hello/hello.component';
 import { HomeComponent } from './home/home.component';
 import { LayoutComponent } from './layout/layout.component';
 import { LoginComponent } from './login/login.component';
+import { WebsocketComponent } from './websocket/websocket.component';
+import { MemberComponent } from './member/member.component';
 
 
 const routes: Routes = [
@@ -27,6 +29,17 @@ const routes: Routes = [
       },
     ]
   },
+
+  {
+    path:'websocket',
+    component: WebsocketComponent
+  },
+
+  {
+    path:'member',
+    component: MemberComponent
+  },
+
   {
     path:'**',
     redirectTo:'login',

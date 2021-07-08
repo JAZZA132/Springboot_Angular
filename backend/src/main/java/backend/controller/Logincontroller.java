@@ -114,6 +114,7 @@ public class Logincontroller {
             map.put("status",false);
             map.put("Cstatus","登入失敗");
         }
+        System.out.println(map);
         return map; // <--返回是否有這位會員
     }
 
