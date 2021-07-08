@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../service/api.service'; // 引入ApiService
 import { HelloData } from '../data/hello-data'; // 引入HelloData
+import { webSocket, WebSocketSubject } from 'rxjs/webSocket';
 
 @Component({
   selector: 'app-hello',
