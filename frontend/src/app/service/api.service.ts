@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 
 
 const url = 'http://localhost:8080';
-const login= '/login/';
+const login= '/login';
 
 @Injectable({
   providedIn: 'root'
@@ -36,6 +36,41 @@ export class ApiService {
     };
     {
       return this.http.post(url + login , reqobj); // 呼叫Spring Boot的DemoController.getHello()
+    }
+  }
+
+
+  register(
+    account:string,
+    password:string,
+    mname:string,
+  ): Observable<any>{
+    const reqobj = {
+      account:account,
+     password:password,
+     name:mname
+    };
+    {
+      return this.http.post(url + "/register" , reqobj); // 呼叫Spring Boot的DemoController.getHello()
+    }
+  }
+
+  update(
+    account:string,
+    password:string,
+    mname:string,
+    id:string,
+    membercode:string,
+  ): Observable<any>{
+    const reqobj = {
+      account:account,
+     password:password,
+     name:mname,
+     id:id,
+     membercode:membercode,
+    };
+    {
+      return this.http.put(url + "/login/${id}" , reqobj); // 呼叫Spring Boot的DemoController.getHello()
     }
   }
 

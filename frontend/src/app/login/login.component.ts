@@ -24,10 +24,18 @@ export class LoginComponent implements OnInit {
     this.apiService.login(this.account,this.password).subscribe(aa =>{
       console.log(aa);
 
+      console.log("response==",Response);
+      console.log("request==",Request)
+
+      
       if(aa.status){
-        console.log(aa.account);
-        sessionStorage.setItem('user', aa.account);
-        sessionStorage.setItem('id', aa.id);
+
+        bb :new Map<any, any>();
+        const bb = aa.user;
+        console.log(bb);
+        
+        sessionStorage.setItem('user', bb);
+        sessionStorage.setItem('name', aa.user.name);
         this.router.navigate(['member']);
 
       }else{

@@ -1,3 +1,9 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js"></script>
+
+
+
 <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
     <div class="position-sticky pt-3">
       <ul class="nav flex-column">
@@ -8,7 +14,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">
+          <a class="nav-link" href="">
             <span data-feather="file"></span>
             Orders
           </a>
@@ -40,3 +46,24 @@
       </ul>
     </div>
   </nav> 
+
+<div class="container">
+<div class="row col-md-6 offset-md-3 pt-3">
+<form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">帳號</label>
+    <input type="email" name="account" [(ngModel)]="account" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">密碼</label>
+    <input type="password" class="form-control" [(ngModel)]="password" name="password"  id="exampleInputPassword1" placeholder="Password">
+  </div>
+  <div class="form-group">
+    <label for="mname">姓名</label>
+    <input type="text" class="form-control" name="mname" [(ngModel)]="mname" id="mname" placeholder="">
+  </div>
+  <button type="submit" class="btn btn-primary" (click)="update()">編輯</button>
+</form>
+</div>
+</div>

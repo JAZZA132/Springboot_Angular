@@ -3,13 +3,16 @@ package backend.controller;
 import backend.bean.Member;
 import backend.service.Loginservice;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -82,6 +85,8 @@ public class Logincontroller {
         return new ResponseEntity<>(updateMember, HttpStatus.OK);
     }
 
+
+
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteMember(@PathVariable("id") int id){
         loginservice.deleteMember(id);
@@ -92,30 +97,41 @@ public class Logincontroller {
     //登入
     @ResponseBody
     @PostMapping (value = "/login")
-    public Map getQueryMember(
+    public ResponseEntity<?> getQueryMember(
             @RequestBody Member member,
-            HttpServletRequest request
-    ) {
+            HttpServletRequest request,
+            HttpServletResponse response
+    ) throws IOException {
 
-        Member user = loginservice.getQueryMember(member);
-        HttpSession session = request.getSession();
+            Member user = loginservice.getQueryMember(member);
+            HttpSession session = request.getSession();
 
-        Map<String, Object> map = new HashMap<>();
+            Map<String, Object> map = new HashMap<>();
 
-        if (user != null) {
-            session.setAttribute(user.getAccount(),user.getAccount());
-            session.setAttribute(String.valueOf(user.getId()),user.getId());
-            session.setAttribute(user.getName(),user.getName());
-            map.put("id",user.getId());
-            map.put("account",user.getAccount());
-            map.put("Cstatus","成功");
-            map.put("status",true);
-        } else {
-            map.put("status",false);
-            map.put("Cstatus","登入失敗");
-        }
-        System.out.println(map);
-        return map; // <--返回是否有這位會員
+            if (user != null) {
+                session.setAttribute(user.getAccount(), user.getAccount());
+                session.setAttribute(String.valueOf(user.getId()), user.getId());
+                session.setAttribute(user.getName(), user.getName());
+                session.setAttribute(user.getPassword(),user.getPassword());
+                map.put("user",user);
+                map.put("Cstatus", "成功");
+                map.put("status", true);
+            } else {
+                map.put("status", false);
+                map.put("Cstatus", "登入失敗");
+            }
+            System.out.println(map);
+//        response.addHeader("Access-Control-Allow-Credentials", "true");
+//        response.addHeader("Access-Control-Allow-Origin", "*");
+//        response.addHeader("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT");
+//        response.addHeader("Access-Control-Allow-Headers", "Content-Type,X-CAF-Authorization-Token,sessionToken,X-TOKEN");
+//        if (HttpMethod.OPTIONS.toString().equals(request.getMethod())) {
+//            response.setStatus(HttpStatus.NO_CONTENT.value());
+//        }
+
+//        response.sendRedirect("/member");
+        //重導向失敗
+        return new ResponseEntity<>(map,HttpStatus.OK);
     }
 
 }
