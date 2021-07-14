@@ -66,7 +66,7 @@ public class Logincontroller {
 
     //查詢單一會員BYId
     @GetMapping(value = "/login/{id}")
-    public ResponseEntity<Member> getMemberById(@PathVariable("id") int id){
+    public ResponseEntity<Member> getMemberById(@PathVariable("id") Integer id){
         Member member = loginservice.findMemberById(id);
         return new ResponseEntity<>(member, HttpStatus.OK);
     }
@@ -74,6 +74,7 @@ public class Logincontroller {
     //新增會員
     @PostMapping("/register")
     public ResponseEntity<Member> addMember(@RequestBody Member member){
+        System.out.println("register  :  " + member);
         Member newMember = loginservice.addMember(member);
         return new ResponseEntity<>(newMember, HttpStatus.CREATED);
     }
@@ -81,6 +82,7 @@ public class Logincontroller {
     //編輯會員
     @PutMapping("/login/{id}")
     public ResponseEntity<Member> updateMember(@RequestBody Member member){
+        System.out.println("update :  "  + member);
         Member updateMember = loginservice.updateMember(member);
         return new ResponseEntity<>(updateMember, HttpStatus.OK);
     }
@@ -88,7 +90,7 @@ public class Logincontroller {
 
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<?> deleteMember(@PathVariable("id") int id){
+    public ResponseEntity<?> deleteMember(@PathVariable("id") Integer id){
         loginservice.deleteMember(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }

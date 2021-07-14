@@ -40,9 +40,9 @@ public class Loginservice {
 
 
     public Member updateMember(Member member){
-        return queryMember.save(member);
+        queryMember.updatem("member");
+        return null;
     }
-
 
 
     public void deleteMember(int id){

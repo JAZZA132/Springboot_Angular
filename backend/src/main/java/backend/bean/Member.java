@@ -15,10 +15,11 @@ import java.io.Serializable;
 public class Member implements Serializable {
 
     @Id
-//    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(nullable = false,updatable = false)
-    private int id ;
+//    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Column(name="user_id",nullable = false,updatable = false)
+    private Integer id ;
     private String name;
+
     private String account;
 
     private String password;
@@ -29,7 +30,7 @@ public class Member implements Serializable {
     public Member() {
     }
 
-    public Member(int id, String name, String account, String password, String memberCode) {
+    public Member(Integer id, String name, String account, String password, String memberCode) {
         this.id = id;
         this.name = name;
         this.account = account;
@@ -37,11 +38,11 @@ public class Member implements Serializable {
         this.membercode = memberCode;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -87,4 +88,5 @@ public class Member implements Serializable {
                 ", memberCode='" + membercode + '\'' +
                 '}';
     }
+
 }

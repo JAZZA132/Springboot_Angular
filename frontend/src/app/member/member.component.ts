@@ -18,26 +18,42 @@ export class MemberComponent implements OnInit {
 
   account:any;
   password:any;
-  mname:any;
+  name:any;
   id:any;
   user:any;
-  membercode:any;
+  memberCode:any;
   
   ngOnInit(): void {
     this.user= sessionStorage.getItem('user');
+    //要解析出來
+    this.user= JSON.parse(this.user);
     console.log(this.user);
-    this.mname= this.user.name;
+    this.name= this.user.name;
+    console.log(this.name)
   }
 
   
+  register(){
+    this.apiService.register(
+      this.account,
+      this.password,
+      this.name,
+      ).subscribe(aa =>{
+      console.log(aa);
+      }
+    )
+  }
+
+
+
 
   update(){
     this.apiService.update(
-      this.user.account,
-      this.user.password,
-      this.user.mname,
+      this.account,
+      this.password,
+      this.name,
       this.user.id,
-      this.user.membercode,).subscribe(aa =>{
+      this.user.memberCode,).subscribe(aa =>{
       console.log(aa);
       }
     )

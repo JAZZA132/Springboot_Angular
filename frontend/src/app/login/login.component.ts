@@ -29,13 +29,10 @@ export class LoginComponent implements OnInit {
 
       
       if(aa.status){
-
-        bb :new Map<any, any>();
-        const bb = aa.user;
-        console.log(bb);
         
-        sessionStorage.setItem('user', bb);
-        sessionStorage.setItem('name', aa.user.name);
+        console.log(JSON.stringify(aa.user));
+        
+        sessionStorage.setItem('user', JSON.stringify(aa.user));
         this.router.navigate(['member']);
 
       }else{

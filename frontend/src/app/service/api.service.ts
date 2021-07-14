@@ -58,18 +58,19 @@ export class ApiService {
   update(
     account:string,
     password:string,
-    mname:string,
+    name:string,
     id:string,
-    membercode:string,
+    memberCode:string,
   ): Observable<any>{
     const reqobj = {
       account:account,
      password:password,
-     name:mname,
+     name:name,
      id:id,
-     membercode:membercode,
+     memberCode:memberCode,
     };
     {
+      console.log(name);
       return this.http.put(url + "/login/${id}" , reqobj); // 呼叫Spring Boot的DemoController.getHello()
     }
   }
