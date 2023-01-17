@@ -5,7 +5,7 @@ public class Hello {
 
     public Hello() {
     }
-//asdasdasdasd
+//asdasd
     public Hello(String greeting) {
         this.greeting = greeting;
     }
