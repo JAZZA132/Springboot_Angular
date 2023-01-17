@@ -5,7 +5,6 @@ public class Hello {
 
     public Hello() {
     }
-//asdasd
     public Hello(String greeting) {
         this.greeting = greeting;
     }
