@@ -13,7 +13,7 @@ import java.io.Serializable;
 @IdClass(Member.class)
 @Scope(value = ConfigurableBeanFactory.SCOPE_SINGLETON)
 public class Member implements Serializable {
-//oijojiojijoi
+
     @Id
 //    @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name="user_id",nullable = false,updatable = false)
