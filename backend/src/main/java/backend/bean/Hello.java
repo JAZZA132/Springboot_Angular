@@ -12,7 +12,7 @@ public class Hello {
     public void setGreeting(String greeting) {
         this.greeting = greeting;
     }
-///aaaaaaa
+
     public String getGreeting() {
         return this.greeting;
     }
